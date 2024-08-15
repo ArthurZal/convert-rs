@@ -8,12 +8,31 @@ inputAmount.addEventListener("input", () => {
 
     inputAmount.value = inputAmount.value.replace(hasCharactersRegex, "")
 
-    //console.log(inputAmount.value)
+    
 })
 
 form.onsubmit = (event) => {
     event.preventDefault()
 
-    console.log(currency.value)
+    switch(currency.value) {
+        case "USD": 
+            console.log(currency.value)
+            break;
+
+        case "EUR":
+            console.log(currency.value)
+            break;
+        
+        case "GBP":
+            console.log(currency.value)
+            break;
+
+        default:
+            console.log("Please, select one valid value")
+    }
+}
+
+function convertCurrency(amount, price, symbol) {
+
 }
 

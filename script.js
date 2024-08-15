@@ -2,6 +2,10 @@ const form = document.querySelector("form");
 const inputAmount = document.querySelector("input");
 const currency = document.querySelector("#currency");
 
+const USD_price = 5.49;
+const EUR_price = 6.02;
+const GBP_price = 7.06;
+
 inputAmount.addEventListener("input", () => {
 
     const hasCharactersRegex = /\D+/g

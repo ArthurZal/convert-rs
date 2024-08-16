@@ -39,7 +39,7 @@ function convertCurrency(amount, price, symbol) {
     
     try {
 
-        description.textContent = `${symbol} 1 = ${price}`
+        description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`
 
         footer.classList.add("show-result")
 
@@ -47,6 +47,15 @@ function convertCurrency(amount, price, symbol) {
         footer.classList.remove("show-result")
 
         console.log("It was not possible to display the result. Please try again later")
+
+        console.log(error)
     }
 };
+
+function formatCurrencyBRL (value) {
+    return Number(value).toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL",
+    })
+}
 

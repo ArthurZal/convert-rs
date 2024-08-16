@@ -1,10 +1,11 @@
-const form = document.querySelector("form");
-const inputAmount = document.querySelector("input");
-const currency = document.querySelector("#currency");
+const form = document.querySelector("form")
+const inputAmount = document.querySelector("input")
+const currency = document.querySelector("#currency")
+const footer = document.querySelector("main footer")
 
-const USD_price = 5.49;
-const EUR_price = 6.02;
-const GBP_price = 7.06;
+const USD_price = 5.49
+const EUR_price = 6.02
+const GBP_price = 7.06
 
 inputAmount.addEventListener("input", () => {
 
@@ -13,30 +14,35 @@ inputAmount.addEventListener("input", () => {
     inputAmount.value = inputAmount.value.replace(hasCharactersRegex, "")
 
     
-})
+});
 
 form.onsubmit = (event) => {
     event.preventDefault()
 
     switch(currency.value) {
         case "USD": 
-            console.log(currency.value)
+            convertCurrency(inputAmount.value, USD_price, "US$")
             break;
 
         case "EUR":
-            console.log(currency.value)
+            convertCurrency(inputAmount.value, EUR_price, "€")
             break;
         
         case "GBP":
-            console.log(currency.value)
+            convertCurrency(inputAmount.value, GBP_price, "£")
             break;
-
-        default:
-            console.log("Please, select one valid value")
     }
-}
+};
 
 function convertCurrency(amount, price, symbol) {
+    
+    try {
+        footer.classList.add("show-result")
 
-}
+    } catch (error) {
+        footer.classList.remove("show-result")
+
+        console.log("It was not possible to display the result. Please try again later")
+    }
+};
 

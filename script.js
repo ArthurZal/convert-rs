@@ -3,6 +3,7 @@ const inputAmount = document.querySelector("input")
 const currency = document.querySelector("#currency")
 const footer = document.querySelector("main footer")
 const description = document.querySelector("#description")
+const result = document.querySelector("#result")
 
 const USD_price = 5.49
 const EUR_price = 6.02
@@ -40,6 +41,16 @@ function convertCurrency(amount, price, symbol) {
     try {
 
         description.textContent = `${symbol} 1 = ${formatCurrencyBRL(price)}`
+
+        let total = amount * price
+
+        if (isNaN(total)) {
+            return alert("Please enter the correct value for conversion.")
+        }
+
+        total = formatCurrencyBRL(total).replace("R$", "")
+
+        result.textContent = `${total} Reais`;
 
         footer.classList.add("show-result")
 

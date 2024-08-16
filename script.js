@@ -2,6 +2,7 @@ const form = document.querySelector("form")
 const inputAmount = document.querySelector("input")
 const currency = document.querySelector("#currency")
 const footer = document.querySelector("main footer")
+const description = document.querySelector("#description")
 
 const USD_price = 5.49
 const EUR_price = 6.02
@@ -37,6 +38,9 @@ form.onsubmit = (event) => {
 function convertCurrency(amount, price, symbol) {
     
     try {
+
+        description.textContent = `${symbol} 1 = ${price}`
+
         footer.classList.add("show-result")
 
     } catch (error) {
